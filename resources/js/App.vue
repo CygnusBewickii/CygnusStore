@@ -1,21 +1,24 @@
 <template>
-    <div class="test">
-        Shop
+    <div class="container">
+        <Header/>
     </div>
+
 </template>
 
 <script>
+import Header from "./components/layouts/Header.vue";
 export default {
-    name: "App"
+    name: "App",
+    components: {Header}
 }
 </script>
 
-<style scoped>
-    .test {
-        font-family: 'DM Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 27px;
+<style>
+    body {
+        background: #FFFFFF;
+        font-family: 'DM sans';
+    }
+    .container {
+        margin: 64px 96px 16px;
     }
 </style>
