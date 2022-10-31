@@ -17,10 +17,14 @@
             </div>
             <div class="navbar__menu-icons">
                 <a href="" class="navbar__menu-icons__link">
-                    <img :src="'/storage/images/searcher.png'" alt="">
+                    <img :src="'/storage/images/searcher.png'" style="margin-top: 8px;" alt="">
                 </a>
-                <a href="" class="navbar__menu-icons__link"></a>
-                <a href="" class="navbar__menu-icons__link"></a>
+                <a href="" class="navbar__menu-icons__link">
+                    <img :src="'/storage/images/shopping-cart.png'" style="margin-bottom: 8px;" alt="">
+                </a>
+                <a href="" class="navbar__menu-icons__link">
+                    <img :src="'/storage/images/profile.png'" style="margin-bottom: 8px;" alt="">
+                </a>
             </div>
         </nav>
     </header>
@@ -64,7 +68,6 @@ export default {
         color: black;
         margin-right: 57px;
     }
-
 
 
     .navbar__menu-icons__link {
