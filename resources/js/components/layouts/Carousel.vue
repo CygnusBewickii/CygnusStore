@@ -1,20 +1,22 @@
 <template>
     <div class="carousel">
-        <div class="carousel__slide">
-            <img :src="'/storage/images/woman.png'" alt="" style="width: 100%; object-fit: cover">
-        </div>
+        <ul class="carousel__slides">
+            <li class="carousel__slide">
+                <img :src="'/storage/images/woman.png'" alt="">
+            </li>
 
-        <div class="carousel__slide">
-            <img :src="'/storage/images/woman.png'" alt="" style="width: 100%; object-fit: cover">
-        </div>
+            <li class="carousel__slide">
+                <img :src="'/storage/images/woman.png'" alt="">
+            </li>
 
-        <div>
-            <div class="carousel__picker">
-                <div class="carousel__picker__circle">
+            <div>
+                <div class="carousel__picker">
+                    <div class="carousel__picker__circle">
 
+                    </div>
                 </div>
             </div>
-        </div>
+        </ul>
     </div>
 </template>
 
@@ -27,7 +29,8 @@ export default {
 <style scoped>
     .carousel {
         width: 100%;
-        max-height: 650px;
+        min-height: 650px;
+        max-height: 900px;
         border-radius: 18px;
         overflow: hidden;
         position: relative;
@@ -45,6 +48,10 @@ export default {
 
     }
 
+    .carousel__slides {
+        width: 9999px;
+    }
+
     .carousel__slide {
         width: 100%;
         display: inline-block;
@@ -53,7 +60,8 @@ export default {
     }
 
     .carousel__slide img {
-        max-height: 650px;
         display: inline-block;
+        object-fit: cover;
+        width: 100vw;
     }
 </style>
