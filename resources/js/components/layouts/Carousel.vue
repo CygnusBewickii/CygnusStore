@@ -4,12 +4,16 @@
             <img :src="'/storage/images/woman.png'" alt="" style="width: 100%; object-fit: cover">
         </div>
 
-        <div class="carousel__left-button">
-            Влево
+        <div class="carousel__slide">
+            <img :src="'/storage/images/woman.png'" alt="" style="width: 100%; object-fit: cover">
         </div>
 
-        <div class="carousel__right-button">
-            Вправо
+        <div>
+            <div class="carousel__picker">
+                <div class="carousel__picker__circle">
+
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -23,27 +27,33 @@ export default {
 <style scoped>
     .carousel {
         width: 100%;
-        height: 650px;
+        max-height: 650px;
         border-radius: 18px;
         overflow: hidden;
         position: relative;
     }
 
-    .carousel__left-button {
+    .carousel__picker {
         position: absolute;
-        left: 0;
-        top: 50%;
+        bottom: 5px;
     }
 
-    .carousel__right-button {
-        position: absolute;
-        right: 0;
-        top: 50%;
+    .carousel__picker__circle {
+        width: 5px;
+        height: 5px;
+        background-color: #ffffff;
+
     }
 
     .carousel__slide {
-        object-fit: fill;
+        width: 100%;
+        display: inline-block;
         border-radius: 18px;
         overflow: hidden;
+    }
+
+    .carousel__slide img {
+        max-height: 650px;
+        display: inline-block;
     }
 </style>
