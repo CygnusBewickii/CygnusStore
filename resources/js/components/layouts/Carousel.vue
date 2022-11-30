@@ -1,67 +1,138 @@
 <template>
-    <div class="carousel">
-        <ul class="carousel__slides">
-            <li class="carousel__slide">
-                <img :src="'/storage/images/woman.png'" alt="">
-            </li>
-
-            <li class="carousel__slide">
-                <img :src="'/storage/images/woman.png'" alt="">
-            </li>
-
-            <div>
-                <div class="carousel__picker">
-                    <div class="carousel__picker__circle">
+    <div class="slider">
+        <ul class="slides" :style="sliderStyle">
+            <li>
+                <div class="slide">
+                    <div class="slide__description">
 
                     </div>
                 </div>
-            </div>
+            </li>
+            <li>
+                <div class="slide">
+
+                </div>
+            </li>
+            <li>
+                <div class="slide">
+
+                </div>
+            </li>
+            <li>
+                <div class="slide">
+
+                </div>
+            </li>
         </ul>
+        <nav class="manual-navigation">
+            <div class="manual-navigation__btn" @click="changeSlide(1)" :class="{ active: activeButtonIndex === 1}">
+                <div></div>
+            </div>
+            <div class="manual-navigation__btn" @click="changeSlide(2)" :class="{ active: activeButtonIndex === 2}">
+
+            </div>
+            <div class="manual-navigation__btn" @click="changeSlide(3)" :class="{ active: activeButtonIndex === 3}">
+
+            </div>
+            <div class="manual-navigation__btn" @click="changeSlide(4)" :class="{ active: activeButtonIndex === 4}">
+
+            </div>
+        </nav>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Carousel"
+    name: "Carousel",
+    data() {
+        return {
+            activeButtonIndex: 1,
+            sliderStyle: {
+                marginLeft: '0px',
+            },
+            backgroundImages: {
+                firstImage: {
+                    backgroundImage: '/storage/images/woman.png',
+                }
+            }
+        }
+    },
+    methods: {
+        changeSlide(slide) {
+            if (slide > 4) {
+                slide = 1;
+            }
+            this.activeButtonIndex = slide;
+            this.sliderStyle.marginLeft = (slide - 1) * -88 + 'vw';
+
+        },
+        autoSlider() {
+            setInterval(() => {
+                this.changeSlide(++this.activeButtonIndex)
+            }, 7000)
+        }
+    },
+    mounted() {
+        this.autoSlider();
+    }
+
 }
 </script>
 
 <style scoped>
-    .carousel {
+    .slider {
         width: 100%;
-        min-height: 650px;
-        max-height: 900px;
-        border-radius: 18px;
+        height: 80vh;
         overflow: hidden;
+        border: #FFFFFF 1px;
+        border-radius: 18px;
         position: relative;
+        margin-top: 20px;
     }
 
-    .carousel__picker {
-        position: absolute;
-        bottom: 5px;
-    }
-
-    .carousel__picker__circle {
-        width: 5px;
-        height: 5px;
-        background-color: #ffffff;
-
-    }
-
-    .carousel__slides {
+    .slides {
         width: 9999px;
+        height: 80vh;
+        transition: 1s;
     }
 
-    .carousel__slide {
-        width: 100%;
+    .slides > li {
         display: inline-block;
-        border-radius: 18px;
-        overflow: hidden;
+        height: 80vh;
+        width: 88vw;
     }
 
-    .carousel__slide img {
-        display: inline-block;
-        object-fit: cover;
-        width: 100vw;
+    .slide {
+        background-image: url('/storage/images/woman.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 88vw;
+        height: 80vh;
     }
+
+    .slide__description {
+
+    }
+
+    .manual-navigation {
+        left: 48%;
+        width: 108px;
+        position: absolute;
+        bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .manual-navigation__btn {
+        width: 18px;
+        height: 18px;
+        border-radius: 50px;
+        background-color: #fff;
+    }
+
+    .active {
+        background-color: #CDCDCD;
+        border: 1px solid white;
+    }
+
 </style>

@@ -20,6 +20,7 @@ export default {
         font-family: 'DM sans';
     }
     .container {
-        margin: 64px 96px 16px;
+        width: 88vw;
+        margin: 64px auto 16px;
     }
 </style>
