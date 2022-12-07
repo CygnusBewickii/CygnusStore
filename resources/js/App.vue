@@ -2,15 +2,17 @@
     <div class="container">
         <Header/>
         <router-view></router-view>
+        <Footer></Footer>
     </div>
 
 </template>
 
 <script>
 import Header from "./components/layouts/Header.vue";
+import Footer from "./components/layouts/Footer.vue";
 export default {
     name: "App",
-    components: {Header}
+    components: {Footer, Header}
 }
 </script>
 
